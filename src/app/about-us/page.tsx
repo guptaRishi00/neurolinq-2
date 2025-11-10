@@ -1,3 +1,4 @@
+import CareApproach from "@/components/aboutpage/CareApproach";
 import CoreValues from "@/components/aboutpage/CoreValues";
 import Founder from "@/components/aboutpage/Founder";
 import HeroSection from "@/components/aboutpage/HeroSection";
@@ -28,6 +29,9 @@ export default async function AboutUs() {
   const founder = response.data[0].blocks.find(
     (block: any) => block.__component === "homepage.founder"
   );
+  const careApproach = response.data[0].blocks.find(
+    (block: any) => block.__component === "aboutpage.care-approach"
+  );
 
   return (
     <div>
@@ -36,6 +40,7 @@ export default async function AboutUs() {
       {ourMission && <OurMission data={ourMission} />}
       {ourValues && <CoreValues data={ourValues} />}
       {founder && <Founder data={founder} />}
+      {careApproach && <CareApproach data={careApproach} />}
     </div>
   );
 }

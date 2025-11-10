@@ -168,6 +168,81 @@ const PageQuery = (slug: string) =>
               cards: true,
             },
           },
+          "servicepage.assessment": {
+            populate: {
+              button: true,
+            },
+          },
+          "servicepage.medication": {
+            populate: {
+              image: {
+                fields: ["url", "name"],
+              },
+              lists: {
+                populate: {
+                  icon: {
+                    fields: ["url", "name"],
+                  },
+                },
+              },
+              button: true,
+            },
+          },
+          "feespage.our-commitment": {
+            populate: {
+              cards: {
+                populate: {
+                  lists: {
+                    populate: {
+                      icon: {
+                        fields: ["url", "name"],
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          "feespage.pricing-options": {
+            populate: {
+              cards: true,
+            },
+          },
+          "feespage.corporate-pricing": {
+            populate: {
+              card: {
+                populate: {
+                  lists: {
+                    populate: {
+                      icon: {
+                        fields: ["url", "name"],
+                      },
+                    },
+                  },
+                  button: true,
+                  image: {
+                    fields: ["url", "name"],
+                  },
+                },
+              },
+            },
+          },
+          "contactpage.contact-details": {
+            populate: {
+              cards: {
+                populate: {
+                  icon: {
+                    fields: ["url", "name"],
+                  },
+                },
+              },
+            },
+          },
+          "contactpage.faq": {
+            populate: {
+              cards: true,
+            },
+          },
         },
       },
     },
