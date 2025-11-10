@@ -6,28 +6,31 @@ export default function CorporatePricing({ data }: any) {
   const { card } = data;
 
   return (
-    <div className="lg:mt-30">
-      <h2 className="text-center lg:text-5xl lg:font-medium text-[#4D5A51]">
+    <div className="mt-12 lg:mt-30 p-6 lg:p-0">
+      <h2 className="text-center text-3xl lg:text-5xl font-medium lg:font-medium text-[#4D5A51]">
         {data?.title}
       </h2>
-      <p className="text-center lg:text-2xl lg:w-full text-[#4D5A51]">
+      <p className="text-center text-lg lg:text-2xl w-full text-[#4D5A51] mt-4 lg:mt-0">
         {data?.description}
       </p>
-      <div className="lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-10 p-10">
-        <div className="lg:flex lg:items-center justify-center w-full">
-          <div className="space-y-8 w-full">
-            <h2 className="text-start lg:text-3xl lg:font-medium text-[#4D5A51]">
+      <div className="w-full p-0 lg:p-10 flex flex-col items-center justify-center gap-6 lg:gap-10 mt-8 lg:mt-0">
+        <div className="w-full flex flex-col-reverse lg:flex-row lg:items-center justify-center gap-8 lg:gap-4">
+          <div className="w-full lg:w-1/2 flex flex-col gap-6 lg:gap-8 items-start">
+            <h2 className="text-start text-2xl lg:text-3xl font-medium lg:font-medium text-[#4D5A51]">
               {card?.title}
             </h2>
-            <p className="text-start lg:text-xl lg:max-w-xl lg:w-full text-[#4D5A51]">
+            <p className="text-start text-base lg:text-xl lg:max-w-xl w-full text-[#4D5A51]">
               {card?.description}
             </p>
 
             <div className="space-y-5">
               {card?.lists?.map((list: any) => (
-                <div className="flex gap-4 items-center">
-                  <LuCircleCheckBig className="text-[#6E7D66]" size={20} />
-                  <p className="text-start lg:text-xl lg:max-w-xl lg:w-full text-[#4D5A51]">
+                <div className="flex gap-4 items-center" key={list.id}>
+                  <LuCircleCheckBig
+                    className="text-[#6E7D66] flex-shrink-0"
+                    size={20}
+                  />
+                  <p className="text-start text-base lg:text-xl w-full text-[#4D5A51]">
                     {list?.text}
                   </p>
                 </div>
@@ -44,10 +47,10 @@ export default function CorporatePricing({ data }: any) {
             </Button>
           </div>
 
-          <div className="w-full overflow-hidden">
+          <div className="w-full lg:w-1/2 overflow-hidden">
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.image.url}`}
-              alt={"logo"}
+              alt={card?.title || "Corporate Pricing"}
               width={500}
               height={500}
               className="object-cover w-full h-full object-center"

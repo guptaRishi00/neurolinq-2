@@ -2,31 +2,32 @@ import Image from "next/image";
 
 export default function Register({ data }: any) {
   return (
-    <div className="flex lg:flex-row items-center justify-center p-8 relative z-10 gap-8">
-      <div className="h-screen border border-[#00000040] w-full bg-white rounded-2xl flex flex-col items-center p-8 lg:gap-14">
-        <div className="flex lg:flex-col items-center justify-center gap-5">
-          <p className="font-bold lg:text-4xl text-[#4D5A51]">
+    <div className="flex flex-col lg:flex-row items-stretch justify-center p-6 lg:p-8 relative z-10 gap-8">
+      {/* Form Column */}
+      <div className="h-auto lg:h-screen border border-[#00000040] w-full bg-white rounded-2xl flex flex-col items-center p-6 lg:p-8 gap-8 lg:gap-14">
+        <div className="flex flex-col items-center justify-center gap-4 lg:gap-5 text-center">
+          <p className="font-bold text-3xl lg:text-4xl text-[#4D5A51]">
             Send Us a Message
           </p>
-          <p className="font-bold lg:text-xl text-[#6E7D66]">
+          <p className="font-bold text-lg lg:text-xl text-[#6E7D66]">
             Fill out the form below and we'll get back to you within 24 hours.
           </p>
         </div>
 
-        <div className="w-full flex lg:flex-col items-center justify-center gap-5">
-          <div className="flex items-center justify-between w-full gap-8">
+        <div className="w-full flex flex-col items-center justify-center gap-5">
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-5 lg:gap-8">
             <div className="w-full">
               <p className="text-lg font-bold text-[#4D5A51]">Name</p>
               <input
                 type="text"
-                className="border border-[#6E7D66] rounded-lg lg:px-5 lg:py-2 w-full"
+                className="border border-[#6E7D66] rounded-lg px-5 py-3 lg:py-2 w-full"
               />
             </div>
             <div className="w-full">
               <p className="text-lg font-bold text-[#4D5A51]">Phone</p>
               <input
                 type="text"
-                className="border border-[#6E7D66] rounded-lg lg:px-5 lg:py-2 w-full"
+                className="border border-[#6E7D66] rounded-lg px-5 py-3 lg:py-2 w-full"
               />
             </div>
           </div>
@@ -34,7 +35,7 @@ export default function Register({ data }: any) {
             <p className="text-lg font-bold text-[#4D5A51]">Email</p>
             <input
               type="text"
-              className="border border-[#6E7D66] rounded-lg lg:px-5 lg:py-2 w-full"
+              className="border border-[#6E7D66] rounded-lg px-5 py-3 lg:py-2 w-full"
             />
           </div>
 
@@ -47,7 +48,7 @@ export default function Register({ data }: any) {
             </label>
             <select
               id="my-dropdown"
-              className="border border-[#6E7D66] rounded-lg lg:px-5 lg:py-2 w-full"
+              className="border border-[#6E7D66] rounded-lg px-5 py-3 lg:py-2 w-full"
             >
               <option value="" disabled>
                 Select Type
@@ -60,37 +61,44 @@ export default function Register({ data }: any) {
 
           <div className="w-full">
             <p className="text-lg font-bold text-[#4D5A51]">Message</p>
-            <textarea className="border border-[#6E7D66] rounded-lg lg:px-5 lg:py-2 w-full" />
+            <textarea
+              className="border border-[#6E7D66] rounded-lg px-5 py-3 lg:py-2 w-full"
+              rows={4}
+            />
           </div>
 
           <button className="bg-[#D4AF84] text-white px-5 py-3 rounded-lg cursor-pointer w-full">
             Send Message
           </button>
 
-          <p className="text-[#4D5A51] text-xs">
+          <p className="text-[#4D5A51] text-xs text-center">
             By submitting this form, you agree to our privacy policy and consent
             to being contacted about your enquiry.
           </p>
         </div>
       </div>
-      <div className="h-screen border border-[#00000040] w-full bg-white rounded-2xl p-8">
-        <div className="flex lg:flex-col items-center justify-center gap-5">
-          <p className="font-bold lg:text-4xl text-[#4D5A51]">{data?.title}</p>
-          <p className="font-bold lg:text-xl text-[#6E7D66]">
+
+      {/* Info Column */}
+      <div className="h-auto lg:h-screen border border-[#00000040] w-full bg-white rounded-2xl p-6 lg:p-8">
+        <div className="flex flex-col items-center justify-center gap-5 text-center">
+          <p className="font-bold text-3xl lg:text-4xl text-[#4D5A51]">
+            {data?.title}
+          </p>
+          <p className="font-bold text-lg lg:text-xl text-[#6E7D66]">
             {data?.description}
           </p>
 
-          <div className="flex flex-col items-start bg w-full gap-8 lg:mt-8">
+          <div className="flex flex-col items-start w-full gap-6 lg:gap-8 mt-8">
             {data?.cards.map((card: any) => (
               <div
-                className="bg-[#E2E4D6] w-full flex items-center gap-4 lg:p-5 rounded-2xl"
+                className="bg-[#E2E4D6] w-full flex items-center gap-4 p-4 lg:p-5 rounded-2xl"
                 key={card.id}
               >
-                <div className="bg-[#6E7D66] w-fit rounded-full p-2 flex items-center justify-center">
+                <div className="bg-[#6E7D66] w-fit rounded-full p-2 flex items-center justify-center flex-shrink-0">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.url}`}
-                    alt=""
-                    className="lg:w-4"
+                    alt={card.title || "icon"}
+                    className="w-4"
                     width={200}
                     height={200}
                   />

@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import Button from "../ui/Button";
 
 export default function Footer({ data, cta }: any) {
   return (
     <div className="h-auto">
-      <div className="relative z-10 bg-[#D4AF84] w-3/4 rounded-xl mx-auto h-auto lg:px-10 lg:py-20 translate-y-16 gap-10 flex items-center justify-center flex-col">
-        <p className="text-white text-4xl">{cta?.title}</p>
-        <p className="text-[#E2E4D6] text-2xl max-w-3xl text-center">
+      <div className="relative z-10 bg-[#D4AF84] w-11/12 lg:w-3/4 rounded-xl mx-auto h-auto p-6 lg:px-10 lg:py-20 translate-y-12 lg:translate-y-16 gap-6 lg:gap-10 flex items-center justify-center flex-col">
+        <p className="text-white text-2xl lg:text-4xl text-center">
+          {cta?.title}
+        </p>
+        <p className="text-[#E2E4D6] text-base lg:text-2xl max-w-3xl text-center">
           {cta?.description}
         </p>
 
-        <div className="lg:flex lg:items-center lg:gap-2">
+        <div className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-2">
           {cta?.button?.map((item: any) => (
             <Button
               color={item.color}
@@ -24,36 +25,41 @@ export default function Footer({ data, cta }: any) {
           ))}
         </div>
       </div>
-      {/* footer */}
-      <div className="relative bg-[#6E7D66] w-full h-auto lg:px-10 lg:pt-30 lg:pb-8">
-        <div className=" lg:grid lg:grid-cols-5 lg:gap-20 ">
-          <div className="lg:col-span-2">
+
+      {/* 2. Footer */}
+      <div className="relative bg-[#6E7D66] w-full h-auto p-6 lg:px-10 pt-24 lg:pt-30 lg:pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-20">
+          <div className="md:col-span-3 lg:col-span-2">
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.logo.url}`}
               alt={"logo"}
               width={100}
               height={100}
-              className="lg:w-16"
+              className="w-16"
             />
-            <p className="text-white lg:text-lg mt-3 lg:max-w-sm">
+            <p className="text-white text-base lg:text-lg mt-3 lg:max-w-sm">
               {data?.description}
             </p>
 
-            <div className="lg:flex lg:flex-col lg:items-start lg:gap-3 lg:mt-8 w-full">
+            <div className="flex flex-col items-start gap-3 mt-8 w-full">
               <p className="text-white text-lg">Stay Updated :</p>
-              <div className="lg:flex lg:items-center lg:gap-2 w-full">
+              <div className="flex flex-col sm:flex-row items-center gap-2 w-full">
                 <input
                   type="text"
-                  className="bg-white/40 p-3 rounded-xl placeholder:text-white"
+                  className="bg-white/40 p-3 rounded-xl placeholder:text-white w-full sm:w-auto"
                   placeholder="Your Email"
                 />
-                <button className="bg-white text-[#6E7D66] px-5 py-3 rounded-xl cursor-pointer">
+                <button
+                  // ADDED: w-full, sm:w-auto
+                  className="bg-white text-[#6E7D66] px-5 py-3 rounded-xl cursor-pointer w-full sm:w-auto"
+                >
                   Subscribe
                 </button>
               </div>
             </div>
           </div>
-          <div className=" h-full flex flex-col items-start gap-3">
+
+          <div className="h-full flex flex-col items-start gap-3">
             <p className="text-white text-xl">Quick Links</p>
             {data?.quicksLinks?.map((link: any) => (
               <Link
@@ -65,7 +71,8 @@ export default function Footer({ data, cta }: any) {
               </Link>
             ))}
           </div>
-          <div className=" h-full flex flex-col items-start gap-3">
+
+          <div className="h-full flex flex-col items-start gap-3">
             <p className="text-white text-xl">Our services</p>
             {data?.ourServices?.map((link: any) => (
               <p key={link.id} className="text-lg text-white">
@@ -73,7 +80,8 @@ export default function Footer({ data, cta }: any) {
               </p>
             ))}
           </div>
-          <div className=" h-full flex flex-col items-start gap-3">
+
+          <div className="h-full flex flex-col items-start gap-3">
             <p className="text-white text-xl">Contact Us</p>
             {data?.contact?.map((link: any) => (
               <div
@@ -82,24 +90,24 @@ export default function Footer({ data, cta }: any) {
               >
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${link.icon.url}`}
-                  alt={"logo"}
+                  alt={"contact icon"}
                   width={100}
                   height={100}
-                  className="lg:w-4"
+                  className="w-4"
                 />
                 <p className="text-lg text-white">{link.text}</p>
               </div>
             ))}
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 mt-4">
               <p className="text-md text-white">Follow</p>
               {data?.socials.map((link: any) => (
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${link.icon.url}`}
-                  alt={"logo"}
+                  alt={"social icon"}
                   width={100}
                   height={100}
-                  className="lg:w-4"
+                  className="w-4"
                   key={link.id}
                 />
               ))}
@@ -107,26 +115,28 @@ export default function Footer({ data, cta }: any) {
           </div>
         </div>
 
-        <div className="w-full h-px bg-white lg:mt-10"></div>
+        <div className="w-full h-px bg-white mt-10"></div>
 
-        <div className="flex items-center justify-between">
-          <p className="text-white lg:text-md mt-3 lg:max-w-sm">
+        <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-white text-sm lg:text-md mt-3 lg:mt-0 text-center lg:text-left lg:max-w-sm">
             {data?.copyright}
           </p>
 
-          <div className="flex items-center gap-5 lg:mt-10">
-            <p className="text-white lg:text-md lg:max-w-sm">
+          <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-5 mt-4 lg:mt-10">
+            <p className="text-white text-sm lg:text-md lg:max-w-sm">
               {data?.privacy?.title}
             </p>
 
-            {data?.privacy?.tags.map((tag: any) => (
-              <div
-                className="bg-white/20 text-sm text-white p-3 rounded-xl"
-                key={tag.id}
-              >
-                {tag.text}
-              </div>
-            ))}
+            <div className="flex items-center gap-2 flex-wrap justify-center">
+              {data?.privacy?.tags.map((tag: any) => (
+                <div
+                  className="bg-white/20 text-sm text-white p-3 rounded-xl"
+                  key={tag.id}
+                >
+                  {tag.text}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

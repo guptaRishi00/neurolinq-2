@@ -2,32 +2,32 @@ import Image from "next/image";
 
 export default function CareApproach({ data }: any) {
   return (
-    <div className="lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-10 p-10">
-      <h2 className="text-center lg:text-5xl lg:font-medium text-[#4D5A51]">
+    <div className="w-full p-6 lg:p-10 flex flex-col items-center justify-center gap-6 lg:gap-10">
+      <h2 className="text-center text-3xl lg:text-5xl font-medium lg:font-medium text-[#4D5A51]">
         {data?.title}
       </h2>
-      <p className="text-center lg:text-2xl lg:w-full text-[#4D5A51]">
+      <p className="text-center text-lg lg:text-2xl w-full text-[#4D5A51]">
         {data?.description}
       </p>
-      <div className="lg:flex lg:items-center justify-center w-full">
-        <div className=" w-full overflow-hidden">
+      <div className="w-full flex flex-col lg:flex-row lg:items-center justify-center gap-8 lg:gap-4">
+        <div className="w-full lg:w-1/2 overflow-hidden">
           <Image
             src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.image.url}`}
-            alt={"logo"}
+            alt={data?.title || "Care Approach"}
             width={500}
             height={500}
             className="object-cover w-full h-full object-center"
             unoptimized
           />
         </div>
-        <div className=" w-full h-full p-3 lg:space-y-10">
+        <div className="w-full lg:w-1/2 h-full flex flex-col gap-6 lg:gap-10 p-0 lg:p-3">
           {data?.cards?.map((card: any) => (
             <div
               key={card.id}
-              className="w-full border border-[#4D5A51] lg:px-5 lg:gap-3 py-5 h-auto rounded-xl lg:flex lg:items-start lg:flex-col"
+              className="w-full border border-[#4D5A51] px-5 py-5 h-auto rounded-xl flex items-start flex-col gap-2 lg:gap-3"
             >
-              <p className="lg:text-xl  text-[#4D5A51]">{card?.title}</p>
-              <p className=" lg:text-sm text-start text-[#4D5A51]">
+              <p className="text-lg lg:text-xl text-[#4D5A51]">{card?.title}</p>
+              <p className="text-sm lg:text-sm text-start text-[#4D5A51]">
                 {card?.description}
               </p>
             </div>
