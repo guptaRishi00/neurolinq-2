@@ -27,7 +27,7 @@ export default function CorporatePricing({ data }: any) {
               {card?.lists?.map((list: any) => (
                 <div className="flex gap-4 items-center" key={list.id}>
                   <LuCircleCheckBig
-                    className="text-[#6E7D66] flex-shrink-0"
+                    className="text-[#6E7D66] shrink-0"
                     size={20}
                   />
                   <p className="text-start text-base lg:text-xl w-full text-[#4D5A51]">
@@ -49,7 +49,7 @@ export default function CorporatePricing({ data }: any) {
 
           <div className="w-full lg:w-1/2 overflow-hidden">
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.image.url}`}
+              src={`${card.image.url}`}
               alt={card?.title || "Corporate Pricing"}
               width={500}
               height={500}
