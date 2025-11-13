@@ -16,14 +16,17 @@ export default function HeroSection({ data }: any) {
         </p>
       </div>
 
-      <Image
-        src={`${data.image.url}`}
-        alt={data?.title || "Hero Image"}
-        width={100}
-        height={100}
-        className="w-full h-auto max-w-md lg:w-160 lg:h-120 relative z-10 translate-y-8 lg:translate-y-32 object-cover"
-        unoptimized
-      />
+      {/* FIX: Add conditional check for image and image.url */}
+      {data?.image?.url && (
+        <Image
+          src={`${data.image.url}`}
+          alt={data?.title || "Hero Image"}
+          width={100}
+          height={100}
+          className="w-full h-auto max-w-md lg:w-160 lg:h-120 relative z-10 translate-y-8 lg:translate-y-32 object-cover"
+          unoptimized
+        />
+      )}
     </div>
   );
 }

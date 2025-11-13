@@ -94,7 +94,7 @@ export default function Register({ data }: any) {
                 className="bg-[#E2E4D6] w-full flex items-center gap-4 p-4 lg:p-5 rounded-2xl"
                 key={card.id}
               >
-                <div className="bg-[#6E7D66] w-fit rounded-full p-2 flex items-center justify-center flex-shrink-0">
+                <div className="bg-[#6E7D66] w-fit rounded-full p-2 flex items-center justify-center shrink-0">
                   <Image
                     src={`${card.icon.url}`}
                     alt={card.title || "icon"}

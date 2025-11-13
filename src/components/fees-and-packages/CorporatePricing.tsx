@@ -37,25 +37,31 @@ export default function CorporatePricing({ data }: any) {
               ))}
             </div>
 
-            <Button
-              color={card.button.color}
-              href={`/${card.button.href || "/"}`}
-              key={card.button.id}
-              className=""
-            >
-              {card.button.text}
-            </Button>
+            {/* FIX: Add conditional check for card.button */}
+            {card?.button && (
+              <Button
+                color={card.button.color}
+                href={`/${card.button.href || "/"}`}
+                key={card.button.id}
+                className=""
+              >
+                {card.button.text}
+              </Button>
+            )}
           </div>
 
           <div className="w-full lg:w-1/2 overflow-hidden">
-            <Image
-              src={`${card.image.url}`}
-              alt={card?.title || "Corporate Pricing"}
-              width={500}
-              height={500}
-              className="object-cover w-full h-full object-center"
-              unoptimized
-            />
+            {/* I've included the image fix from our last conversation here too, just in case */}
+            {card?.image?.url && (
+              <Image
+                src={`${card.image.url}`}
+                alt={card?.title || "Corporate Pricing"}
+                width={500}
+                height={500}
+                className="object-cover w-full h-full object-center"
+                unoptimized
+              />
+            )}
           </div>
         </div>
       </div>
