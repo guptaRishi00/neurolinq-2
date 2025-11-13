@@ -31,7 +31,7 @@ export default function Footer({ data, cta }: any) {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-20">
           <div className="md:col-span-3 lg:col-span-2">
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.logo.url}`}
+              src={`${data.logo.url}`}
               alt={"logo"}
               width={100}
               height={100}
@@ -89,7 +89,7 @@ export default function Footer({ data, cta }: any) {
                 key={link.id}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${link.icon.url}`}
+                  src={`${link.icon.url}`}
                   alt={"contact icon"}
                   width={100}
                   height={100}
@@ -103,7 +103,7 @@ export default function Footer({ data, cta }: any) {
               <p className="text-md text-white">Follow</p>
               {data?.socials.map((link: any) => (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${link.icon.url}`}
+                  src={`${link.icon.url}`}
                   alt={"social icon"}
                   width={100}
                   height={100}

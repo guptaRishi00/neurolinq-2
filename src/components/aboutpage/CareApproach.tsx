@@ -12,7 +12,7 @@ export default function CareApproach({ data }: any) {
       <div className="w-full flex flex-col lg:flex-row lg:items-center justify-center gap-8 lg:gap-4">
         <div className="w-full lg:w-1/2 overflow-hidden">
           <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.image.url}`}
+            src={`${data.image.url}`}
             alt={data?.title || "Care Approach"}
             width={500}
             height={500}

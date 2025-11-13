@@ -30,7 +30,7 @@ export default function MeetOurFounder({ data }: any) {
 
         <div className="relative w-[320px] h-[420px] lg:w-[500px] lg:h-[480px] rounded-lg overflow-hidden shadow-lg z-10">
           <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.profile?.image.url}`}
+            src={`${data.profile?.image.url}`}
             alt={data?.profile?.name || "founder photo"}
             width={300}
             height={300}

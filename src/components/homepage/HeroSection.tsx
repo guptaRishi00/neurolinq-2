@@ -7,7 +7,7 @@ export default function HeroSection({ data }: any) {
       <div className="relative w-full h-auto bg-[#6E7D66] p-6 lg:p-8 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8">
         <div className="relative">
           <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.image.url}`}
+            src={`${data.image.url}`}
             alt={data?.title || "Hero Image"}
             width={500}
             height={500}

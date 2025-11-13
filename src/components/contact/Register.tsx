@@ -96,7 +96,7 @@ export default function Register({ data }: any) {
               >
                 <div className="bg-[#6E7D66] w-fit rounded-full p-2 flex items-center justify-center flex-shrink-0">
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.url}`}
+                    src={`${card.icon.url}`}
                     alt={card.title || "icon"}
                     className="w-4"
                     width={200}

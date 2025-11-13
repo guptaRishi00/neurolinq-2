@@ -18,7 +18,7 @@ export default function CareStrandard({ data }: any) {
           >
             {card?.icon && (
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.url}`}
+                src={`${card.icon.url}`}
                 alt={card.title || "Icon"} // Better alt text
                 width={500}
                 height={500}

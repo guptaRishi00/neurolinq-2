@@ -14,7 +14,7 @@ export default function HeroSection({ data }: any) {
       </div>
 
       <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.image.url}`}
+        src={`${data.image.url}`}
         alt={data?.title || "Hero Image"}
         width={100}
         height={100}

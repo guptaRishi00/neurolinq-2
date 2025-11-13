@@ -23,7 +23,7 @@ export default function Process({ data }: any) {
               >
                 {card?.icon && (
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.url}`}
+                    src={`${card.icon.url}`}
                     alt={card.title || "Icon"}
                     width={500}
                     height={500}

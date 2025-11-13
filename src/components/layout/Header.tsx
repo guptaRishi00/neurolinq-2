@@ -14,7 +14,7 @@ export default function Header({ data }: any) {
       <div className="w-full p-4 lg:p-8 flex justify-between items-center">
         <Link href={"/"}>
           <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.logo.url}`}
+            src={`${data.logo.url}`}
             alt={"logo"}
             width={100}
             height={100}

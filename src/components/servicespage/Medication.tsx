@@ -17,7 +17,7 @@ export default function Medication({ data }: any) {
             {data?.lists?.map((list: any) => (
               <div className="flex gap-4 items-center" key={list.id}>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${list.icon.url}`}
+                  src={`${list.icon.url}`}
                   alt={list.text || "icon"}
                   width={500}
                   height={500}
@@ -43,7 +43,7 @@ export default function Medication({ data }: any) {
 
         <div className="w-full lg:w-1/2 overflow-hidden">
           <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.image.url}`}
+            src={`${data.image.url}`}
             alt={data?.title || "Medication"}
             width={500}
             height={500}
