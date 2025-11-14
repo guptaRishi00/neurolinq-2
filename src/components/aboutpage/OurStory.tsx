@@ -8,7 +8,7 @@ export default function OurStory({ data }: any) {
       <p className="text-[#4D5A51] text-4xl lg:text-6xl font-medium">
         {data?.title}
       </p>
-      <div className="text-lg lg:text-2xl text-[#333] leading-relaxed space-y-4">
+      <div className="text-lg lg:text-2xl text-[#333] leading-relaxed font-semibold space-y-4">
         <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
           {data?.description}
         </ReactMarkdown>

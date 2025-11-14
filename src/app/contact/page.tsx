@@ -1,6 +1,7 @@
 import HeroSection from "@/components/aboutpage/HeroSection";
 import Faq from "@/components/contact/Faq";
 import Register from "@/components/contact/Register";
+import Cta from "@/components/ui/Cta";
 import { getPageData } from "@/data/loader";
 
 export default async function Contact() {
@@ -21,11 +22,16 @@ export default async function Contact() {
   const faq = response.data[0].blocks.find(
     (block: any) => block.__component === "contactpage.faq"
   );
+
+  const cta = response.data[0].blocks.find(
+    (block: any) => block.__component === "layout.cta"
+  );
   return (
     <div>
       {heroSectionData && <HeroSection data={heroSectionData} />}
       {contact && <Register data={contact} />}
       {faq && <Faq data={faq} />}
+      {cta && <Cta data={cta} />}
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function HeroSection({ data }: any) {
         </div>
 
         <div className="flex flex-col items-center text-center gap-6 lg:flex lg:flex-col lg:items-start lg:text-left lg:gap-10">
-          <h1 className="text-3xl lg:text-5xl lg:max-w-2xl text-white font-bold">
+          <h1 className="text-3xl lg:text-5xl lg:max-w-2xl text-white font-bold lg:leading-16">
             {data?.title}
           </h1>
           <p className="text-[#E2E4D6] text-lg lg:text-2xl">{data?.subtitle}</p>
@@ -25,12 +25,13 @@ export default function HeroSection({ data }: any) {
             {data?.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-8">
             {data?.button?.map((item: any) => (
               <Button
                 color={item.color}
                 href={`/${item.href || "/"}`}
                 key={item.id}
+                className="font-semibold"
               >
                 {item.text}
               </Button>

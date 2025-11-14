@@ -22,7 +22,6 @@ export default function Header({ data }: any) {
           />
         </Link>
 
-        {/* 2. Desktop Nav Links (Hidden on mobile) */}
         <div className="hidden lg:flex lg:justify-between lg:items-center lg:gap-5">
           {data.links.map((link: any) => (
             <div className="" key={link.id}>
@@ -36,20 +35,20 @@ export default function Header({ data }: any) {
           ))}
         </div>
 
-        {/* 3. Desktop Buttons (Hidden on mobile) */}
+        {/*  mobile */}
         <div className="hidden lg:flex lg:items-center lg:gap-2">
           {data?.button?.map((item: any) => (
             <Button
               color={item.color}
               href={`/${item.href || "/"}`}
               key={item.id}
+              className="font-semibold"
             >
               {item.text}
             </Button>
           ))}
         </div>
 
-        {/* 4. Mobile Hamburger Button (Hidden on desktop) */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -60,8 +59,6 @@ export default function Header({ data }: any) {
           </button>
         </div>
       </div>
-
-      {/* 5. Mobile Menu (Dropdown) */}
 
       <div
         className={`
@@ -83,7 +80,6 @@ export default function Header({ data }: any) {
           </div>
         ))}
 
-        {/* Mobile Buttons */}
         <div className="flex flex-col items-stretch gap-2 w-full max-w-xs">
           {data?.button?.map((item: any) => (
             <Button

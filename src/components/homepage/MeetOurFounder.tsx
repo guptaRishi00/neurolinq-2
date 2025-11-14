@@ -6,13 +6,15 @@ import Image from "next/image";
 export default function MeetOurFounder({ data }: any) {
   return (
     <div className="w-full p-6 lg:px-10 lg:py-20 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-10 lg:gap-0">
-      <div className="w-full lg:w-1/2 flex flex-col items-start gap-6">
+      <div className="w-full lg:w-1/2 flex flex-col items-start gap-8">
         <p className="text-[#4D5A51] text-3xl lg:text-5xl font-medium">
           {data?.title}
         </p>
-        <p className="text-[#6E7D66] text-xl lg:text-3xl">{data?.subtitle}</p>
+        <p className="text-[#6E7D66] text-xl lg:text-3xl font-medium">
+          {data?.subtitle}
+        </p>
 
-        <div className="text-base lg:text-xl text-[#333] leading-relaxed space-y-4">
+        <div className="text-base lg:text-xl text-[#333] leading-relaxed space-y-4 font-medium">
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
             {data?.description}
           </ReactMarkdown>
@@ -40,7 +42,7 @@ export default function MeetOurFounder({ data }: any) {
         </div>
 
         <div className="text-center mt-6 space-y-1 z-10">
-          <p className="text-[#4D5A51] font-bold text-xl lg:text-2xl">
+          <p className="text-[#4D5A51] font-medium text-xl lg:text-4xl">
             {data?.profile?.name}
           </p>
           <p className="text-[#4D5A51] text-lg lg:text-2xl">

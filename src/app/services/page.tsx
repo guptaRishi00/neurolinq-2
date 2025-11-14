@@ -3,6 +3,7 @@ import HeroSection from "@/components/aboutpage/HeroSection";
 import Assessment from "@/components/servicespage/Assessment";
 import Medication from "@/components/servicespage/Medication";
 import Process from "@/components/servicespage/Process";
+import Cta from "@/components/ui/Cta";
 import { getPageData } from "@/data/loader";
 
 export default async function page({}: any) {
@@ -32,6 +33,10 @@ export default async function page({}: any) {
     (block: any) => block.__component === "aboutpage.care-approach"
   );
 
+  const cta = response.data[0].blocks.find(
+    (block: any) => block.__component === "layout.cta"
+  );
+
   return (
     <div>
       {heroSectionData && <HeroSection data={heroSectionData} />}
@@ -39,6 +44,7 @@ export default async function page({}: any) {
       {process && <Process data={process} />}
       {medication && <Medication data={medication} />}
       {corporate && <CareApproach data={corporate} />}
+      {cta && <Cta data={cta} />}
     </div>
   );
 }

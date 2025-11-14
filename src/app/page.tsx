@@ -3,6 +3,7 @@ import HeroSection from "@/components/homepage/HeroSection";
 import CareStrandard from "@/components/homepage/CareStrandard";
 import Pathway from "@/components/homepage/Pathway";
 import MeetOurFounder from "@/components/homepage/MeetOurFounder";
+import Cta from "@/components/ui/Cta";
 
 export default async function Home() {
   const response = await getHomepageData();
@@ -26,6 +27,9 @@ export default async function Home() {
   const founder = response.data.blocks.find(
     (block: any) => block.__component === "homepage.founder"
   );
+  const cta = response.data.blocks.find(
+    (block: any) => block.__component === "layout.cta"
+  );
 
   return (
     <div className="">
@@ -33,6 +37,7 @@ export default async function Home() {
       {careStrandard && <CareStrandard data={careStrandard} />}
       {pathway && <Pathway data={pathway} />}
       {founder && <MeetOurFounder data={founder} />}
+      {cta && <Cta data={cta} />}
     </div>
   );
 }

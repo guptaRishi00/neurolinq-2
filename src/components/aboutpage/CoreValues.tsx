@@ -10,7 +10,7 @@ export default function CoreValues({ data }: any) {
         {data?.description}
       </p>
 
-      <div className="w-full px-0 lg:px-20 mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 lg:items-center lg:justify-center">
+      <div className="w-full px-0 lg:px-20 mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-20 lg:items-center lg:justify-center">
         {data?.cards.map((card: any) => (
           <div
             className="w-full h-[250px] bg-[#6E7D66] flex items-start flex-col gap-4 lg:gap-5 px-5 py-6 rounded-xl"

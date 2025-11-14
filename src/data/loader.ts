@@ -106,6 +106,11 @@ const homepageQuery = () =>
               },
             },
           },
+          "layout.cta": {
+            populate: {
+              button: true,
+            },
+          },
         },
       },
     },
@@ -241,6 +246,11 @@ const PageQuery = (slug: string) =>
           "contactpage.faq": {
             populate: {
               cards: true,
+            },
+          },
+          "layout.cta": {
+            populate: {
+              button: true,
             },
           },
         },

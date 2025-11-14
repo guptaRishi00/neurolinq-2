@@ -2,30 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/Button";
 
-export default function Footer({ data, cta }: any) {
+export default function Footer({ data }: any) {
   return (
     <div className="h-auto">
-      <div className="relative z-10 bg-[#D4AF84] w-11/12 lg:w-3/4 rounded-xl mx-auto h-auto p-6 lg:px-10 lg:py-20 translate-y-12 lg:translate-y-16 gap-6 lg:gap-10 flex items-center justify-center flex-col">
-        <p className="text-white text-2xl lg:text-4xl text-center">
-          {cta?.title}
-        </p>
-        <p className="text-[#E2E4D6] text-base lg:text-2xl max-w-3xl text-center">
-          {cta?.description}
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-2">
-          {cta?.button?.map((item: any) => (
-            <Button
-              color={item.color}
-              href={`/${item.href || "/"}`}
-              key={item.id}
-            >
-              {item.text}
-            </Button>
-          ))}
-        </div>
-      </div>
-
       {/* 2. Footer */}
       <div className="relative bg-[#6E7D66] w-full h-auto p-6 lg:px-10 pt-24 lg:pt-30 lg:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-20">
@@ -37,12 +16,12 @@ export default function Footer({ data, cta }: any) {
               height={100}
               className="w-16"
             />
-            <p className="text-white text-base lg:text-lg mt-3 lg:max-w-sm">
+            <p className="text-white text-base lg:text-lg mt-3 font-medium lg:max-w-sm">
               {data?.description}
             </p>
 
             <div className="flex flex-col items-start gap-3 mt-8 w-full">
-              <p className="text-white text-lg">Stay Updated :</p>
+              <p className="text-white text-lg font-medium">Stay Updated :</p>
               <div className="flex flex-col sm:flex-row items-center gap-2 w-full">
                 <input
                   type="text"
@@ -63,7 +42,7 @@ export default function Footer({ data, cta }: any) {
             <p className="text-white text-xl">Quick Links</p>
             {data?.quicksLinks?.map((link: any) => (
               <Link
-                href={`/${link.href}`}
+                href={link.href === "home" ? "/" : `/${link.href}`}
                 className="text-lg text-white"
                 key={link.id}
               >

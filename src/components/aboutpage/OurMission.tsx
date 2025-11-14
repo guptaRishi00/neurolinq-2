@@ -9,7 +9,7 @@ export default function OurMission({ data }: any) {
         <p className="text-center text-3xl lg:text-5xl font-medium text-[#4D5A51]">
           {data?.title}
         </p>
-        <p className="text-center text-base lg:text-xl text-[#4D5A51] lg:max-w-4xl font-medium">
+        <p className="text-center text-base lg:text-xl text-[#4D5A51] lg:max-w-4xl font-bold">
           {data?.description}
         </p>
       </div>

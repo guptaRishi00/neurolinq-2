@@ -12,7 +12,7 @@ export default function Founder({ data }: any) {
         </p>
         <p className="text-[#6E7D66] text-xl lg:text-3xl">{data?.subtitle}</p>
 
-        <div className="text-base lg:text-xl text-[#333] leading-relaxed space-y-4">
+        <div className="text-base lg:text-xl text-[#333] leading-relaxed font-bold space-y-4">
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
             {data?.description}
           </ReactMarkdown>
@@ -40,7 +40,7 @@ export default function Founder({ data }: any) {
         </div>
 
         <div className="text-center mt-6 space-y-1 z-10">
-          <p className="text-[#4D5A51] font-bold text-xl lg:text-2xl">
+          <p className="text-[#4D5A51] font-medium text-xl lg:text-4xl">
             {data?.profile?.name}
           </p>
           <p className="text-[#4D5A51] text-lg lg:text-2xl">

@@ -3,6 +3,7 @@ import "./globals.css";
 import { getGlobalData } from "@/data/loader";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Cta from "@/components/ui/Cta";
 
 export const metadata: Metadata = {
   title: "Neurolinq",
@@ -32,7 +33,7 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.svg" sizes="any" />
         <Header data={header} />
         {children}
-        <Footer data={footer} cta={cta} />
+        <Footer data={footer} />
       </body>
     </html>
   );

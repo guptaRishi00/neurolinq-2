@@ -5,6 +5,7 @@ import HeroSection from "@/components/aboutpage/HeroSection";
 import OurMission from "@/components/aboutpage/OurMission";
 import OurStory from "@/components/aboutpage/OurStory";
 import MeetOurFounder from "@/components/homepage/MeetOurFounder";
+import Cta from "@/components/ui/Cta";
 import { getPageData } from "@/data/loader";
 
 export default async function AboutUs() {
@@ -32,6 +33,9 @@ export default async function AboutUs() {
   const careApproach = response.data[0].blocks.find(
     (block: any) => block.__component === "aboutpage.care-approach"
   );
+  const cta = response.data[0].blocks.find(
+    (block: any) => block.__component === "layout.cta"
+  );
 
   return (
     <div>
@@ -41,6 +45,7 @@ export default async function AboutUs() {
       {ourValues && <CoreValues data={ourValues} />}
       {founder && <Founder data={founder} />}
       {careApproach && <CareApproach data={careApproach} />}
+      {cta && <Cta data={cta} />}
     </div>
   );
 }
