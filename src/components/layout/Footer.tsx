@@ -54,7 +54,10 @@ export default function Footer({ data }: any) {
           <div className="h-full flex flex-col items-start gap-3">
             <p className="text-white text-xl">Our services</p>
             {data?.ourServices?.map((link: any) => (
-              <p key={link.id} className="text-lg text-white">
+              <p
+                key={link.id}
+                className="text-lg text-white hover:text-[#D4AF84] transition-all duration-300 cursor-pointer"
+              >
                 {link.text}
               </p>
             ))}
@@ -74,7 +77,9 @@ export default function Footer({ data }: any) {
                   height={100}
                   className="w-4"
                 />
-                <p className="text-lg text-white">{link.text}</p>
+                <p className="text-lg text-white hover:text-[#D4AF84] transition-all duration-300 cursor-pointer">
+                  {link.text}
+                </p>
               </div>
             ))}
 
@@ -86,7 +91,7 @@ export default function Footer({ data }: any) {
                   alt={"social icon"}
                   width={100}
                   height={100}
-                  className="w-4"
+                  className="w-4 hover:text-[#D4AF84] transition-all duration-300 cursor-pointer"
                   key={link.id}
                 />
               ))}
@@ -101,7 +106,7 @@ export default function Footer({ data }: any) {
             {data?.copyright}
           </p>
 
-          <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-5 mt-4 lg:mt-10">
+          <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-5 mt-4 lg:mt-4">
             <p className="text-white text-sm lg:text-md lg:max-w-sm">
               {data?.privacy?.title}
             </p>

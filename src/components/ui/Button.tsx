@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   href,
   ...rest
 }) => {
-  const baseStyles = "px-8 py-3 rounded-xl cursor-pointer font-medium";
+  const baseStyles = "px-6 py-4 rounded-xl cursor-pointer font-medium";
 
   const colorStyles = colorMap[color];
 

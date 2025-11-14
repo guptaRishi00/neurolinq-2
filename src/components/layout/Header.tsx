@@ -22,12 +22,12 @@ export default function Header({ data }: any) {
           />
         </Link>
 
-        <div className="hidden lg:flex lg:justify-between lg:items-center lg:gap-5">
+        <div className="hidden lg:flex lg:justify-between lg:items-center lg:gap-6">
           {data.links.map((link: any) => (
             <div className="" key={link.id}>
               <Link
                 href={link?.href || "/"}
-                className="text-white hover:text-[#D4AF84] transition-all duration-300 text-lg"
+                className="text-white hover:text-[#D4AF84] transition-all duration-300 text-xl"
               >
                 {link?.text}
               </Link>
