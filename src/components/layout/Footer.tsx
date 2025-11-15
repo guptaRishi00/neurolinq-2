@@ -77,7 +77,7 @@ export default function Footer({ data }: any) {
                   height={100}
                   className="w-4"
                 />
-                <p className="text-lg text-white hover:text-[#D4AF84] transition-all duration-300 cursor-pointer">
+                <p className="text-sm text-white hover:text-[#D4AF84] transition-all duration-300 cursor-pointer">
                   {link.text}
                 </p>
               </div>
