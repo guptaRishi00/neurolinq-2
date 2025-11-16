@@ -5,6 +5,7 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion } from "framer-motion"; // <-- 1. Import motion
 
 export default function Header({ data }: any) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,15 +13,24 @@ export default function Header({ data }: any) {
   return (
     <div className="w-full bg-[#6E7D66] relative">
       <div className="w-full p-4 lg:p-8 flex justify-between items-center">
-        <Link href={"/"}>
-          <Image
-            src={`${data.logo.url}`}
-            alt={"logo"}
-            width={100}
-            height={100}
-            className="w-20 h-20 lg:h-10 lg:w-50"
-          />
-        </Link>
+        {/* 2. Added motion.div wrapper for the logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }} // Start invisible and off-screen left
+          animate={{ opacity: 1, x: 0 }} // Animate to visible and original position
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }} // Enlarge slightly on hover
+          whileTap={{ scale: 0.95 }} // Shrink slightly on click
+        >
+          <Link href={"/"}>
+            <Image
+              src={`${data.logo.url}`}
+              alt={"logo"}
+              width={100}
+              height={100}
+              className="w-20 h-20 lg:h-10 lg:w-50"
+            />
+          </Link>
+        </motion.div>
 
         <div className="hidden lg:flex lg:justify-between lg:items-center lg:gap-6">
           {data.links.map((link: any) => (
@@ -35,7 +45,7 @@ export default function Header({ data }: any) {
           ))}
         </div>
 
-        {/*  mobile */}
+        {/*  mobile */}
         <div className="hidden lg:flex lg:items-center lg:gap-2">
           {data?.button?.map((item: any) => (
             <Button
@@ -62,11 +72,11 @@ export default function Header({ data }: any) {
 
       <div
         className={`
-          lg:hidden absolute top-full left-0 w-full bg-[#6E7D66] z-20
-          flex flex-col items-center gap-6 p-6
-          transition-all duration-300 ease-in-out
-          ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
-        `}
+          lg:hidden absolute top-full left-0 w-full bg-[#6E7D66] z-20
+          flex flex-col items-center gap-6 p-6
+          transition-all duration-300 ease-in-out
+          ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+        `}
       >
         {data.links.map((link: any) => (
           <div className="" key={link.id}>
