@@ -78,9 +78,8 @@ export default function Register({ data }: any) {
                 <option value="" disabled>
                   Select Type
                 </option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="option1">Book Appointment</option>
+                <option value="option2">Contact Enquries</option>
               </select>
 
               {/* 4. Add the icon, absolutely positioned */}
