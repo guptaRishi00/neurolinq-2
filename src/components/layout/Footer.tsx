@@ -54,12 +54,13 @@ export default function Footer({ data }: any) {
           <div className="h-full flex flex-col items-start gap-3">
             <p className="text-white text-xl">Our services</p>
             {data?.ourServices?.map((link: any) => (
-              <p
+              <Link
+                href={"/services"}
                 key={link.id}
                 className="text-lg text-white hover:text-[#D4AF84] transition-all duration-300 cursor-pointer"
               >
                 {link.text}
-              </p>
+              </Link>
             ))}
           </div>
 
