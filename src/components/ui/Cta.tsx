@@ -62,7 +62,7 @@ export default function Cta({ data }: any) {
       {/* Buttons Container */}
       <motion.div
         variants={itemVariants}
-        className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-2"
+        className="flex flex-col sm:flex-row items-center gap-10 mt-5 lg:mt-0 lg:flex lg:items-center lg:gap-2"
       >
         {data?.button?.map((item: any) => (
           // 4. Button Wrapper for Interaction

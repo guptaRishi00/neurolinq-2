@@ -5,53 +5,53 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { motion } from "framer-motion"; // <-- 1. Import motion
+import { motion } from "framer-motion";
 
 export default function Header({ data }: any) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="w-full bg-[#6E7D66] relative">
-      <div className="w-full p-4 lg:p-8 flex justify-between items-center">
-        {/* 2. Added motion.div wrapper for the logo */}
+    <header className="w-full bg-[#6E7D66] relative">
+      <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6 flex justify-between items-center">
+        {/* LOGO */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }} // Start invisible and off-screen left
-          animate={{ opacity: 1, x: 0 }} // Animate to visible and original position
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          whileHover={{ scale: 1.05 }} // Enlarge slightly on hover
-          whileTap={{ scale: 0.95 }} // Shrink slightly on click
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link href={"/"}>
+          <Link href="/">
             <Image
-              src={`${data.logo.url}`}
-              alt={"logo"}
-              width={100}
-              height={100}
-              className="w-20 h-20 lg:h-10 lg:w-50"
+              src={data.logo.url}
+              alt="logo"
+              width={120}
+              height={50}
+              className="w-40 h-auto lg:w-32"
             />
           </Link>
         </motion.div>
 
-        <div className="hidden lg:flex lg:justify-between lg:items-center lg:gap-6">
+        {/* DESKTOP NAV */}
+        <nav className="hidden lg:flex gap-8 items-center">
           {data.links.map((link: any) => (
-            <div className="" key={link.id}>
-              <Link
-                href={link?.href || "/"}
-                className="text-white hover:text-[#D4AF84] transition-all duration-300 text-xl"
-              >
-                {link?.text}
-              </Link>
-            </div>
+            <Link
+              key={link.id}
+              href={link.href || "/"}
+              className="text-white hover:text-[#D4AF84] transition-all duration-300 text-lg"
+            >
+              {link.text}
+            </Link>
           ))}
-        </div>
+        </nav>
 
-        {/*  mobile */}
-        <div className="hidden lg:flex lg:items-center lg:gap-2">
+        {/* DESKTOP BUTTONS */}
+        <div className="hidden lg:flex items-center gap-4">
           {data?.button?.map((item: any) => (
             <Button
+              key={item.id}
               color={item.color}
               href={`/${item.href || "/"}`}
-              key={item.id}
               className="font-semibold"
             >
               {item.text}
@@ -59,50 +59,52 @@ export default function Header({ data }: any) {
           ))}
         </div>
 
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white text-3xl focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <HiX /> : <HiMenu />}
-          </button>
-        </div>
+        {/* MOBILE MENU BUTTON */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden text-white text-3xl"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <HiX /> : <HiMenu />}
+        </button>
       </div>
 
-      <div
-        className={`
-          lg:hidden absolute top-full left-0 w-full bg-[#6E7D66] z-20
-          flex flex-col items-center gap-6 p-6
-          transition-all duration-300 ease-in-out
-          ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
-        `}
+      {/* MOBILE DROPDOWN MENU */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{
+          opacity: isMenuOpen ? 1 : 0,
+          height: isMenuOpen ? "auto" : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        className="lg:hidden overflow-hidden bg-[#6E7D66]"
       >
-        {data.links.map((link: any) => (
-          <div className="" key={link.id}>
+        <div className="flex flex-col items-center gap-6 p-6">
+          {data.links.map((link: any) => (
             <Link
-              href={link?.href || "/"}
+              key={link.id}
+              href={link.href || "/"}
               className="text-white hover:text-[#D4AF84] transition-all duration-300 text-lg"
-              onClick={() => setIsMenuOpen(false)} // Close menu on click
+              onClick={() => setIsMenuOpen(false)}
             >
-              {link?.text}
+              {link.text}
             </Link>
-          </div>
-        ))}
-
-        <div className="flex flex-col items-stretch gap-2 w-full max-w-xs">
-          {data?.button?.map((item: any) => (
-            <Button
-              color={item.color}
-              href={`/${item.href || "/"}`}
-              key={item.id}
-              onClick={() => setIsMenuOpen(false)} // Close menu on click
-            >
-              {item.text}
-            </Button>
           ))}
+
+          <div className="flex flex-col w-full gap-3 max-w-xs">
+            {data?.button?.map((item: any) => (
+              <Button
+                key={item.id}
+                color={item.color}
+                href={`/${item.href || "/"}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.text}
+              </Button>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </header>
   );
 }

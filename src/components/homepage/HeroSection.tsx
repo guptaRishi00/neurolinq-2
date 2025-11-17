@@ -115,7 +115,7 @@ export default function HeroSection({ data }: any) {
 
           {/* Button group with stagger */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center gap-2 lg:flex lg:items-center lg:gap-8"
+            className="flex flex-col sm:flex-row items-center gap-10 lg:flex lg:items-center lg:gap-8"
             variants={buttonContainerVariants}
           >
             {data?.button?.map((item: any, index: number) => (
