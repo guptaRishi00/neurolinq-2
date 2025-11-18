@@ -12,7 +12,7 @@ export default function Header({ data }: any) {
 
   return (
     <header className="w-full bg-[#6E7D66] relative">
-      <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6 flex justify-between items-center">
+      <div className="w-full mx-auto px-8 py-4 lg:py-6 flex justify-between items-center">
         {/* LOGO */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -27,13 +27,14 @@ export default function Header({ data }: any) {
               alt="logo"
               width={120}
               height={50}
-              className="w-40 h-auto lg:w-32"
+              // Logo keeps lg sizing preference, but layout structure moves to xl
+              className="w-40 h-auto lg:w-40"
             />
           </Link>
         </motion.div>
 
-        {/* DESKTOP NAV */}
-        <nav className="hidden lg:flex gap-8 items-center">
+        {/* DESKTOP NAV - Changed lg:flex to xl:flex */}
+        <nav className="hidden xl:flex gap-8 items-center">
           {data.links.map((link: any) => (
             <Link
               key={link.id}
@@ -45,8 +46,8 @@ export default function Header({ data }: any) {
           ))}
         </nav>
 
-        {/* DESKTOP BUTTONS */}
-        <div className="hidden lg:flex items-center gap-4">
+        {/* DESKTOP BUTTONS - Changed lg:flex to xl:flex */}
+        <div className="hidden xl:flex items-center gap-4">
           {data?.button?.map((item: any) => (
             <Button
               key={item.id}
@@ -59,17 +60,17 @@ export default function Header({ data }: any) {
           ))}
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU BUTTON - Changed lg:hidden to xl:hidden */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-white text-3xl"
+          className="xl:hidden text-white text-3xl"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <HiX /> : <HiMenu />}
         </button>
       </div>
 
-      {/* MOBILE DROPDOWN MENU */}
+      {/* MOBILE DROPDOWN MENU - Changed lg:hidden to xl:hidden */}
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{
@@ -77,7 +78,7 @@ export default function Header({ data }: any) {
           height: isMenuOpen ? "auto" : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="lg:hidden overflow-hidden bg-[#6E7D66]"
+        className="xl:hidden overflow-hidden bg-[#6E7D66]"
       >
         <div className="flex flex-col items-center gap-6 p-6">
           {data.links.map((link: any) => (

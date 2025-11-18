@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, Variants } from "framer-motion"; // <-- 2. Import motion and Variants
-import { useScroll, useTransform } from "framer-motion"; // <-- 3. Import scroll hooks
+// Removed useScroll and useTransform as they were only used for the image parallax
 
 // 4. Define animation variants
 const sectionReveal: Variants = {
@@ -40,25 +40,10 @@ const textItemSlideIn: Variants = {
   },
 };
 
-const imageSlideIn: Variants = {
-  hidden: { opacity: 0, x: 100, scale: 1.1 }, // Start off-screen right, slightly larger
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10,
-      delay: 0.5, // Delay image animation for impact
-    },
-  },
-};
+// Removed imageSlideIn variant
 
 export default function HeroSection({ data }: any) {
-  // 5. Setup useScroll for parallax effect on the image
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]); // Image moves 20% down as user scrolls
+  // Removed scroll hooks setup
 
   return (
     // 6. Apply variants to the main section div
@@ -93,10 +78,9 @@ export default function HeroSection({ data }: any) {
         </motion.p>
       </motion.div>
 
-      {/* 8. Animate the image with slide-in and parallax */}
-      <motion.div
-        variants={imageSlideIn}
-        style={{ y }} // Apply the parallax 'y' transform
+      {/* 8. Image Container - Animation Removed (Converted to standard div) */}
+      <div
+        // Removed variants={imageSlideIn} and style={{ y }}
         className="w-full h-auto max-w-sm lg:max-w-none relative z-10 translate-y-8 lg:w-150 lg:h-150 lg:translate-y-32"
       >
         <Image
@@ -104,10 +88,10 @@ export default function HeroSection({ data }: any) {
           alt={data?.title || "Hero Image"}
           width={100}
           height={100}
-          className="w-full h-auto object-cover" // Ensure image fills its motion.div
+          className="w-full h-auto object-cover" // Ensure image fills its container
           unoptimized
         />
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

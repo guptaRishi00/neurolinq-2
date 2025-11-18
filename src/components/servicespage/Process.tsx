@@ -14,12 +14,16 @@ export default function Process({ data }: any) {
           {data?.description}
         </p>
 
-        <div className="w-full mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-start lg:justify-around gap-6 lg:gap-4">
+        {/* UPDATED: Switched to xl:flex-row to prevent squeezing on 1024px screens. 
+            Added xl:items-stretch to make all cards equal height. */}
+        <div className="w-full mt-8 lg:mt-10 flex flex-col xl:flex-row xl:items-stretch xl:justify-around gap-6 lg:gap-4">
           {data.cards &&
             data.cards?.map((card: any) => (
               <div
                 key={card.id}
-                className="border border-[#4D5A51] h-auto lg:h-[300px] rounded-lg bg-white p-8 flex flex-col items-center justify-center lg:justify-around w-full gap-4 lg:gap-3"
+                // UPDATED: Removed fixed height (lg:h-[300px]).
+                // Used xl:min-h-[350px] for consistency and h-full to fill the flex container.
+                className="border border-[#4D5A51] h-auto xl:min-h-[350px] rounded-lg bg-white p-8 flex flex-col items-center justify-start w-full gap-4 lg:gap-3 flex-1"
               >
                 {card?.icon && (
                   <Image

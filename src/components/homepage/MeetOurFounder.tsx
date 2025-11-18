@@ -85,11 +85,8 @@ export default function MeetOurFounder({ data }: any) {
 
       {/* Right Column: Image & Founder Info */}
       <div className="relative w-full lg:w-1/2 flex flex-col items-center mt-10 lg:mt-0">
-        {/* Decorative Background SVG */}
-        <motion.div
-          variants={bgScaleIn}
-          className="lg:w-90 lg:h-90 hidden lg:inline-block absolute top-0 left-50 lg:-translate-x-1/2 lg:-translate-y-10 z-0"
-        >
+        {/* Decorative Background SVG - Animation Removed */}
+        <div className="lg:w-90 lg:h-90 hidden lg:inline-block absolute top-0 left-50 lg:-translate-x-1/2 lg:-translate-y-10 z-0">
           <Image
             src={"/founder.svg"}
             alt={"decorative background"}
@@ -97,15 +94,10 @@ export default function MeetOurFounder({ data }: any) {
             height={500}
             className="w-full h-full"
           />
-        </motion.div>
+        </div>
 
-        {/* Profile Image Container */}
-        <motion.div
-          variants={itemFadeInUp}
-          // Add a subtle float animation while hovering
-          whileHover={{ y: -10, transition: { duration: 0.4 } }}
-          className="relative w-[320px] h-[420px] lg:w-[500px] lg:h-[480px] rounded-lg overflow-hidden shadow-lg z-10"
-        >
+        {/* Profile Image Container - Animation Removed */}
+        <div className="relative w-[320px] h-[420px] lg:w-[500px] lg:h-[480px] rounded-lg overflow-hidden shadow-lg z-10">
           <Image
             src={`${data.profile?.image.url}`}
             alt={data?.profile?.name || "founder photo"}
@@ -114,9 +106,9 @@ export default function MeetOurFounder({ data }: any) {
             className="object-cover w-full h-full object-center"
             unoptimized
           />
-        </motion.div>
+        </div>
 
-        {/* Founder Name & Designation */}
+        {/* Founder Name & Designation - Text Animation Kept */}
         <motion.div
           variants={itemFadeInUp}
           className="text-center mt-6 space-y-1 z-10"

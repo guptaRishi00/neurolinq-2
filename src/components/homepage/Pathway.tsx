@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-// 1. Removed "react-intersection-observer" (Framer Motion handles this natively now)
 
 const MotionLink = motion(Link);
 
@@ -76,15 +75,16 @@ export default function Pathway({ data }: any) {
           </motion.p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="w-full mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-start lg:justify-around gap-6 lg:gap-20 lg:px-10">
+        {/* Cards Grid - Updated Breakpoints from lg to xl */}
+        <div className="w-full mt-8 lg:mt-10 flex flex-col xl:flex-row xl:items-stretch xl:justify-around gap-6 xl:gap-20 xl:px-10">
           {data.cards &&
             data.cards?.map((card: any) => (
               <motion.div
                 key={card.id}
                 variants={cardVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="border border-[#4D5A51] h-auto lg:h-[370px] rounded-xl bg-white px-6 py-5 flex flex-col items-center gap-4 lg:gap-3 lg:justify-around w-full shadow-sm hover:shadow-md transition-shadow duration-300"
+                // Updated min-h to apply only at xl, preventing fixed height issues in stack mode
+                className="border border-[#4D5A51] h-auto xl:min-h-[370px] rounded-xl bg-white px-6 py-5 flex flex-col items-center gap-4 xl:gap-3 xl:justify-around w-full shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 {card?.icon && (
                   <motion.div

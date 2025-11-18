@@ -3,7 +3,8 @@ import { FiChevronDown } from "react-icons/fi";
 
 export default function Register({ data }: any) {
   return (
-    <div className="w-full mx-auto flex flex-col lg:grid lg:grid-cols-3 items-start justify-center p-6 lg:p-8 relative z-10 gap-8 lg:gap-12 py-12 lg:py-16">
+    // Updated breakpoint: changed lg:grid to xl:grid
+    <div className="w-full mx-auto flex flex-col xl:grid xl:grid-cols-3 items-start justify-center p-6 lg:p-8 relative z-10 gap-8 lg:gap-12 py-12 lg:py-16">
       {/* Form */}
       <div className="h-auto col-span-2 w-full border border-[#00000040] bg-white rounded-2xl flex flex-col items-center p-8 lg:p-12 gap-8">
         <div className="flex flex-col items-center justify-center gap-4 lg:gap-5 text-center">
@@ -116,7 +117,8 @@ export default function Register({ data }: any) {
       </div>
 
       {/* Info */}
-      <div className="h-auto lg:h-[830px] col-span-1 w-full border border-[#00000040] bg-white rounded-2xl p-6 sm:p-8 lg:p-10">
+      {/* Updated height: removed lg:h-[830px] which was fixed, allowed auto height for better stacking */}
+      <div className="h-auto xl:h-[830px] col-span-1 w-full border border-[#00000040] bg-white rounded-2xl p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center justify-center gap-5 text-center">
           {/* Title */}
           <p className="font-bold text-2xl sm:text-3xl lg:text-4xl text-[#4D5A51] break-words">
