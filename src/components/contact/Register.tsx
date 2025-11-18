@@ -116,35 +116,48 @@ export default function Register({ data }: any) {
       </div>
 
       {/* Info */}
-      <div className="h-auto lg:h-[830px] col-span-1 w-full border border-[#00000040] bg-white rounded-2xl p-8 lg:p-8">
+      <div className="h-auto lg:h-[830px] col-span-1 w-full border border-[#00000040] bg-white rounded-2xl p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center justify-center gap-5 text-center">
-          <p className="font-bold text-3xl lg:text-4xl text-[#4D5A51]">
+          {/* Title */}
+          <p className="font-bold text-2xl sm:text-3xl lg:text-4xl text-[#4D5A51] break-words">
             {data?.title}
           </p>
-          <p className="font-bold text-lg lg:text-xl text-[#6E7D66]">
+
+          {/* Description */}
+          <p className="font-medium text-base sm:text-lg lg:text-xl text-[#6E7D66] max-w-2xl break-words">
             {data?.description}
           </p>
 
-          <div className="flex flex-col items-start w-full gap-6 mt-8">
+          {/* Cards */}
+          <div className="flex flex-col w-full gap-6 mt-8">
             {data?.cards.map((card: any) => (
               <div
-                className="bg-[#e2e4d6] w-full flex items-start gap-4 p-6 rounded-[25px]"
                 key={card.id}
+                className="bg-[#e2e4d6] w-full flex items-start gap-4 p-4 sm:p-6 rounded-2xl overflow-hidden"
               >
-                <div className="shrink-0 bg-[#6E7D66] rounded-full p-3 flex items-center justify-center">
-                  <Image
-                    src={`${card.icon.url}`}
-                    alt={card.title || "icon"}
-                    className="w-5 h-5"
-                    width={20}
-                    height={20}
-                  />
+                {/* ICON */}
+                <div className="flex items-start justify-center shrink-0">
+                  <div className="bg-[#6E7D66] rounded-full p-3 flex items-center justify-center">
+                    <Image
+                      src={card.icon.url}
+                      alt={card.title || "icon"}
+                      width={24}
+                      height={24}
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                    />
+                  </div>
                 </div>
-                <div className="flex flex-col items-start">
-                  <p className="text-xl font-bold text-[#4D5A51] ">
-                    {card?.title}
+
+                {/* TEXT */}
+                <div className="flex flex-col gap-1 items-start w-full">
+                  <p className="text-lg sm:text-xl font-bold text-[#4D5A51] break-words">
+                    {card.title}
                   </p>
-                  <p className="text-md text-[#4D5A51]">{card?.description}</p>
+
+                  {/* ⚠️ FIX: break email, long URLs, any long text */}
+                  <p className="text-sm sm:text-base text-[#4D5A51] leading-relaxed break-words break-all">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             ))}
